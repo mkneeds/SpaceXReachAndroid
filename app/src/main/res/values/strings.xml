@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SpaceXReach</string>
+    <string name="developer_name">Kraevsky V.Yu.</string>
+    <string name="app_facts">App Facts:</string>
+    <string name="fact_1">1. Track SpaceX launches.</string>
+    <string name="fact_2">2. Get forecasts and notes on space events.</string>
+    <string name="fact_3">3. Developer Information: %1$s.</string>
+</resources>
