@@ -5,4 +5,10 @@
     <string name="fact_1">1. Track SpaceX launches.</string>
     <string name="fact_2">2. Get forecasts and notes on space events.</string>
     <string name="fact_3">3. Developer Information: %1$s.</string>
+    <string name="home">Home</string>
+    <string name="rocket">Rocket</string>
+    <string name="favorites">Favorites</string>
+    <string name="settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

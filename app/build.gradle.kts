@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "by.bsuir.krayeuski.spacexreach"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "by.bsuir.krayeuski.spacexreach"
@@ -49,6 +49,7 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -61,6 +62,15 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.core)
     implementation(libs.koin.compose)
+    implementation(libs.library)
+    implementation(libs.accompanist.navigation.material)
+    implementation(libs.chip.navigation.bar)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.mediarouter)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

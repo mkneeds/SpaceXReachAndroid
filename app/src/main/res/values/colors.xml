@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="cosmic_color">#0D47A1</color>
+    <color name="home">#2196F3</color>
+    <color name="activity">#673AB7</color>
+    <color name="favorites">#F44336</color>
+    <color name="settings">#673AB7</color>
 </resources>
