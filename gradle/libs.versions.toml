@@ -41,6 +41,8 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-fragment = { group = "androidx.fragment", name = "fragment", version = "1.7.0-alpha05" }
 androidx-mediarouter = { group = "androidx.mediarouter", name = "mediarouter", version = "1.6.0" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version = "2.7.0-alpha02" }
+firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version = "2.9.9" }
+gson = { group = "com.google.code.gson", name = "gson", version = "2.10.1" }
 
 
 

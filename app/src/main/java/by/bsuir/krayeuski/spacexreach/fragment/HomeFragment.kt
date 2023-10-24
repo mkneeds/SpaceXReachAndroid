@@ -1,30 +1,17 @@
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
+import androidx.compose.runtime.*
+import androidx.compose.ui.platform.*
+import androidx.lifecycle.ViewModel
 import by.bsuir.krayeuski.spacexreach.Navigation.HomeScreen
-import by.bsuir.krayeuski.spacexreach.R
-import by.bsuir.krayeuski.spacexreach.model.SpaceXEvent
+import by.bsuir.krayeuski.spacexreach.model.SpaceXEventStorage
 import by.bsuir.krayeuski.spacexreach.model.SpaceXViewModel
+
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -34,12 +21,36 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val context = requireContext()
+
+
+        val storage = SpaceXEventStorage(context)
+
+
+        val viewModelFactory = SpaceXViewModelFactory(storage)
+
         return ComposeView(requireContext()).apply {
             setContent {
-                val viewModel = viewModel<SpaceXViewModel>()
 
-                HomeScreen(viewModel);
+                val viewModel: SpaceXViewModel = viewModel(
+                    factory = viewModelFactory,
+                    modelClass = SpaceXViewModel::class.java
+                )
+
+                HomeScreen(viewModel)
             }
         }
     }
 }
+
+
+
+class SpaceXViewModelFactory(private val storage: SpaceXEventStorage) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(SpaceXViewModel::class.java)) {
+            return SpaceXViewModel(storage) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}
+

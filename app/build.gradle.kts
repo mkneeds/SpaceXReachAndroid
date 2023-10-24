@@ -68,6 +68,8 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.mediarouter)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.firebase.crashlytics.buildtools)
+    implementation(libs.gson)
 
 
 

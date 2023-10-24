@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.SpaceXReach" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Другие настройки темы -->
+        <item name="android:fontFamily">@font/nasa</item>
     </style>
 </resources>

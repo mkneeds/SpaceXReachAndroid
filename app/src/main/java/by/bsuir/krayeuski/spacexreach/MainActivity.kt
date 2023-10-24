@@ -54,4 +54,12 @@ class AplicationSpaceXReach : Application() {
             modules()
         }
     }
+
+    companion object {
+        private lateinit var instance: AplicationSpaceXReach
+
+        fun getInstance(): AplicationSpaceXReach {
+            return instance
+        }
+    }
 }
