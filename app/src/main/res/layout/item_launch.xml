@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    tools:context=".LaunchItemFragment">
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Name: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Date: "
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonHeart" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Description: "
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonHeart" />
+
+    <TextView
+        android:id="@+id/textViewRocketName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Rocket Name: "
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonHeart" />
+
+    <TextView
+        android:id="@+id/textViewMissionName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Mission Name: "
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRocketName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonHeart" />
+
+    <ImageButton
+        android:id="@+id/imageButtonHeart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_heart"
+        android:background="@null"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintVertical_bias="0.5"
+    app:layout_constraintHorizontal_bias="1.0"
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

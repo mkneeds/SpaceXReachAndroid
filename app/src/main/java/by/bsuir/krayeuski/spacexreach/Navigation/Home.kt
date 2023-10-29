@@ -29,7 +29,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.widget.ConstraintLayout
 import by.bsuir.krayeuski.spacexreach.model.Rocket
 import by.bsuir.krayeuski.spacexreach.model.SpaceXEvent
 import by.bsuir.krayeuski.spacexreach.model.SpaceXViewModel

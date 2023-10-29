@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import by.bsuir.krayeuski.spacexreach.AplicationSpaceXReach
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,18 +29,20 @@ data class Rocket(
 
 class SpaceXEventStorage(context: Context) {
 
-    private val sharedPreferences: SharedPreferences = context.getSharedPreferences("spacex_events", Context.MODE_PRIVATE)
+    private val fileName = "spacex_events.json"
+
+    private val sharedPreferences: SharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
     private val gson = Gson()
 
     fun saveSpaceXEvents(events: List<SpaceXEvent>) {
         val json = gson.toJson(events)
         sharedPreferences.edit {
-            putString("events", json)
+            putString(fileName, json) // Use the constant file name
         }
     }
 
     fun loadSpaceXEvents(): List<SpaceXEvent> {
-        val json = sharedPreferences.getString("events", null)
+        val json = sharedPreferences.getString(fileName, null)
         return if (json != null) {
             gson.fromJson(json, Array<SpaceXEvent>::class.java).toList()
         } else {
@@ -50,6 +50,7 @@ class SpaceXEventStorage(context: Context) {
         }
     }
 }
+
 
 class SpaceXViewModel(private val storage: SpaceXEventStorage) : ViewModel() {
 
