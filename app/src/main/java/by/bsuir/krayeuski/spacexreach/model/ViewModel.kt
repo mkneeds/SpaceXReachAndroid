@@ -102,4 +102,20 @@ class SpaceXViewModel(private val storage: SpaceXEventStorage) : ViewModel() {
         }
     }
 
+    fun isEventInList(eventName: String): Boolean {
+        return _spaceXEvents.any { it.title == eventName }
+    }
+    fun removeSpaceXEventByName(eventName: String) {
+        val eventToRemove = _spaceXEvents.find { it.title == eventName }
+        eventToRemove?.let { event ->
+            CoroutineScope(Dispatchers.IO).launch {
+                withContext(Dispatchers.IO) {
+                    _spaceXEvents.remove(event)
+                    storage.saveSpaceXEvents(_spaceXEvents)
+                }
+            }
+        }
+    }
+
+
 }

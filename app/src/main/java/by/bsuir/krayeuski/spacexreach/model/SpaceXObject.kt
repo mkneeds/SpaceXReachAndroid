@@ -14,12 +14,12 @@ data class SpaceXObject(
     var isFavorite: Boolean = false
 )
 
-// Сериализация объекта в JSON
+
 fun SpaceXObject.toJson(): String {
     return Gson().toJson(this)
 }
 
-// Десериализация JSON в объект
+
 fun String.toSpaceXObject(): SpaceXObject {
     return Gson().fromJson(this, SpaceXObject::class.java)
 }

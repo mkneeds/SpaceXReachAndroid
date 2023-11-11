@@ -8,7 +8,7 @@ import retrofit2.http.GET
 
 object SpaceXApiClient {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.spacexdata.com/v5/") // Базовый URL
+        .baseUrl("https://api.spacexdata.com/v5/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
