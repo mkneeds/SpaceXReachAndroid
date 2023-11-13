@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModel
+
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,6 +27,13 @@ data class Rocket(
     val power: String,
     val destination: String
 )
+
+sealed class SpaceXIntent {
+    data class AddEvent(val title: String, val date: String, val description: String, val rocket: Rocket) : SpaceXIntent()
+    data class EditEvent(val eventId: String, val title: String, val date: String, val description: String, val rocket: Rocket) : SpaceXIntent()
+    data class RemoveEvent(val event: SpaceXEvent) : SpaceXIntent()
+    data class RemoveEventByName(val eventName: String) : SpaceXIntent()
+}
 
 class SpaceXEventStorage(context: Context) {
 
@@ -61,7 +69,14 @@ class SpaceXViewModel(private val storage: SpaceXEventStorage) : ViewModel() {
 
         _spaceXEvents.addAll(storage.loadSpaceXEvents())
     }
-
+    fun processIntent(intent: SpaceXIntent) {
+        when (intent) {
+            is SpaceXIntent.AddEvent -> addSpaceXEvent(intent.title, intent.date, intent.description, intent.rocket)
+            is SpaceXIntent.EditEvent -> editSpaceXEvent(intent.eventId, intent.title, intent.date, intent.description, intent.rocket)
+            is SpaceXIntent.RemoveEvent -> removeSpaceXEvent(intent.event)
+            is SpaceXIntent.RemoveEventByName -> removeSpaceXEventByName(intent.eventName)
+        }
+    }
     fun addSpaceXEvent(title: String, date: String, description: String, rocket: Rocket) {
         val id = UUID.randomUUID().toString()
         val event = SpaceXEvent(id, title, date, description, rocket)
@@ -73,6 +88,7 @@ class SpaceXViewModel(private val storage: SpaceXEventStorage) : ViewModel() {
             }
         }
     }
+
 
 
     fun editSpaceXEvent(eventId: String, title: String, date: String, description: String, rocket: Rocket) {

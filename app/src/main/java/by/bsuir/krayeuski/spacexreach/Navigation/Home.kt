@@ -31,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import by.bsuir.krayeuski.spacexreach.model.Rocket
 import by.bsuir.krayeuski.spacexreach.model.SpaceXEvent
+import by.bsuir.krayeuski.spacexreach.model.SpaceXIntent
 import by.bsuir.krayeuski.spacexreach.model.SpaceXViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -98,7 +99,6 @@ fun HomeScreen(
             EditSpaceXEventDialog(
                 onDismiss = { showDialog.value = false },
                 onSave = { title, date, description, rocket ->
-
                     val editedEvent = SpaceXEvent(
                         id = eventToEdit.id,
                         title = title,
@@ -106,13 +106,13 @@ fun HomeScreen(
                         description = description,
                         rocket = rocket
                     )
-                    viewModel.editSpaceXEvent(
-                        editedEvent.id,
-                        editedEvent.title,
-                        editedEvent.date,
-                        editedEvent.description,
-                        editedEvent.rocket
-                    )
+                    viewModel.processIntent(SpaceXIntent.EditEvent(
+                        eventId = editedEvent.id,
+                        title = editedEvent.title,
+                        date = editedEvent.date,
+                        description = editedEvent.description,
+                        rocket = editedEvent.rocket
+                    ))
                     showDialog.value = false
                     items = items.map { if (it.id == editedEvent.id) editedEvent else it }
                 },
@@ -123,8 +123,7 @@ fun HomeScreen(
             AddSpaceXEventDialog(
                 onDismiss = { showDialog.value = false },
                 onSave = { title, date, description, rocket ->
-                    viewModel.addSpaceXEvent(title, date, description, rocket)
-
+                    viewModel.processIntent(SpaceXIntent.AddEvent(title, date, description, rocket))
                     showDialog.value = false
                     items = viewModel.spaceXEvents
                 }
