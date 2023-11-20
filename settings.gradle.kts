@@ -14,6 +14,6 @@ dependencyResolutionManagement {
         maven { url = uri("https://www.jitpack.io" ) }
     }
 }
-
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "SpaceXReach"
 include(":app")

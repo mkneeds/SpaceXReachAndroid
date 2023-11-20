@@ -11,7 +11,7 @@ import by.bsuir.krayeuski.spacexreach.Navigation.HomeScreen
 import by.bsuir.krayeuski.spacexreach.model.SpaceXEventStorage
 import by.bsuir.krayeuski.spacexreach.model.SpaceXViewModel
 
-class HomeFragment : Fragment() {
+internal class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -27,7 +27,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoveFragment : Fragment() {
+internal class LoveFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var spaceXViewModel: SpaceXViewModel
     private lateinit var adapter: LaunchAdapter

@@ -15,12 +15,12 @@ data class SpaceXObject(
 )
 
 
-fun SpaceXObject.toJson(): String {
+internal fun SpaceXObject.toJson(): String {
     return Gson().toJson(this)
 }
 
 
-fun String.toSpaceXObject(): SpaceXObject {
+internal fun String.toSpaceXObject(): SpaceXObject {
     return Gson().fromJson(this, SpaceXObject::class.java)
 }
 

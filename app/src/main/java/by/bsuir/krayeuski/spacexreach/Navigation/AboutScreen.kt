@@ -33,7 +33,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 
 @Composable
-fun AboutScreen() {
+internal fun AboutScreen() {
 
     val developerName = stringResource(id = R.string.developer_name)
     val appFacts = stringResource(id = R.string.app_facts)

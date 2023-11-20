@@ -6,20 +6,20 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Call
 import retrofit2.http.GET
 
-object SpaceXApiClient {
+internal object SpaceXApiClient {
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.spacexdata.com/v5/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val spaceXApiService: SpaceXApiService = retrofit.create(SpaceXApiService::class.java)
+    internal val spaceXApiService: SpaceXApiService = retrofit.create(SpaceXApiService::class.java)
 }
 
 
 
 
 
-interface SpaceXApiService {
+internal interface SpaceXApiService {
     @GET("launches/latest")
     fun getLatestLaunch(): Call<SpaceXObject>
     @GET("launches/")

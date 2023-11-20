@@ -37,7 +37,7 @@ import by.bsuir.krayeuski.spacexreach.model.SpaceXViewModel
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(
+internal fun HomeScreen(
     viewModel: SpaceXViewModel
 ) {
     var items by remember { mutableStateOf(viewModel.spaceXEvents) }

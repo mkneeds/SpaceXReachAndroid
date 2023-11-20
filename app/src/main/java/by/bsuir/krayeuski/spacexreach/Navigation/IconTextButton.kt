@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun IconTextButton(
+internal fun IconTextButton(
     onClick: () -> Unit,
     icon: Painter,
     text: String,
